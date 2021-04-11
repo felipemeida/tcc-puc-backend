@@ -22,7 +22,8 @@ class HomeController extends Controller
         $bookCount = Book::count();
         $categoryCount = Category::count();
         $productCount = Product::count();
+        $viewCount = View::sum('views');
         $views = View::orderByDesc('views')->limit(6)->get();
-        return view('home', compact(['postCount', 'bookCount', 'categoryCount', 'productCount', 'views']));
+        return view('home', compact(['postCount', 'bookCount', 'categoryCount', 'productCount', 'views', 'viewCount']));
     }
 }

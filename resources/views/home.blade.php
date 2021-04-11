@@ -74,7 +74,7 @@
                     <div class="d-flex">
                         <p class="d-flex flex-column">
                             <span class="text-bold text-lg"></span>
-                            <span>Qtd</span>
+                            <span><b>Total: </b>{{ $viewCount }}</span>
                         </p>
                     </div>
                     <!-- /.d-flex -->
