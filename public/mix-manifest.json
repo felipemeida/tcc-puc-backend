@@ -1,0 +1,7 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/library/toastr.min.css": "/css/library/toastr.min.css",
+    "/js/library/library.js": "/js/library/library.js",
+    "/js/library/Chart.js": "/js/library/Chart.js"
+}
