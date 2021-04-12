@@ -6,7 +6,7 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::prefix('painel')->group(function () {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
