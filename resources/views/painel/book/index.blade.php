@@ -29,7 +29,7 @@
                         <td>{{ $book['id'] }}</td>
                         <td>{{ $book['name'] }}</td>
                         <td>{{ $book['author'] }}</td>
-                        <td>{{ $book['category_id']  }}</td>
+                        <td>{{ $book->category->name  }}</td>
                         <td class="d-flex">
                             <a class="mr-2" href="{{ route('book.edit', $book['id']) }}">
                                 <button class="btn btn-warning">Editar</button>
