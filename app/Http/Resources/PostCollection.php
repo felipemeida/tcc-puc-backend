@@ -13,7 +13,8 @@ class PostCollection extends JsonResource
             'title' => $this->title,
             'article' => $this->article,
             'user' => $this->user,
-            'category' => $this->category
+            'category' => $this->category,
+            'photo' => $this->photo,
         ];
     }
 }
