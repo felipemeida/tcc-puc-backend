@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -74,5 +76,18 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('post.index')->with('message', 'Postagem deletado');
+    }
+
+    public function pdf()
+    {
+        $post = new Post();
+        $posts = $post->all();
+
+        $data = [
+            'posts' => $posts
+        ];
+
+        $pdf = PDF::loadView('painel.post.pdf', $data);
+        return $pdf->download('post.pdf');
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Models\View;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use function Couchbase\defaultDecoder;
 
@@ -38,5 +40,17 @@ class ViewController extends Controller
         $view->delete();
 
         return redirect()->route('view.index')->with('message', 'Página deletada');
+    }
+
+    public function pdf()
+    {
+        $views = View::all();
+
+        $data = [
+            'views' => $views
+        ];
+
+        $pdf = PDF::loadView('painel.view.pdf', $data);
+        return $pdf->download('view.pdf');
     }
 }

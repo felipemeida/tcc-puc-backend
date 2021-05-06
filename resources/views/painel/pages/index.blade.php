@@ -10,7 +10,6 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Blocos do site</h3>
-            <button class="btn btn-danger btn-xs float-right">Download PDF</button>
         </div>
         <!-- /.card-header -->
         <div class="card-body">

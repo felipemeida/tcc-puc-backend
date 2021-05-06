@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use function Couchbase\defaultDecoder;
@@ -81,5 +83,18 @@ class ProductController extends Controller
         $category->delete();
 
         return redirect()->route('product.index')->with('message', 'Produto deletado');
+    }
+
+    public function pdf()
+    {
+        $product = new Product();
+        $products = $product->all();
+
+        $data = [
+            'products' => $products
+        ];
+
+        $pdf = PDF::loadView('painel.product.pdf', $data);
+        return $pdf->download('product.pdf');
     }
 }

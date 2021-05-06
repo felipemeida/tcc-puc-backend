@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Book;
+use Barryvdh\DomPDF\Facade as PDF;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use function MongoDB\BSON\toJSON;
@@ -80,9 +81,22 @@ class BookController extends Controller
 
     public function get(Request $request, $id)
     {
-        return response()->json(['error' => false], 201);
+        //return response()->json(['error' => false], 201);
 //        $book = Book::find($id);
 //        dd($id);
 //        return $book->toJson();
+    }
+
+    public function pdf()
+    {
+        $book = new Book();
+        $books = $book->all();
+
+        $data = [
+            'books' => $books
+        ];
+
+        $pdf = PDF::loadView('painel.book.pdf', $data);
+        return $pdf->download('book.pdf');
     }
 }

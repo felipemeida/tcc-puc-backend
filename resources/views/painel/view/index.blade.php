@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Visualizações</h3>
-            <button class="btn btn-danger btn-xs float-right">Download PDF</button>
+            <a href="{{ route('view.pdf') }}"><button class="btn btn-danger btn-xs float-right">Download PDF</button></a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">

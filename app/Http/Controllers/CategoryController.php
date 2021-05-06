@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Page;
+use App\Models\Post;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -77,5 +79,18 @@ class CategoryController extends Controller
             'product' => 'Produto',
             'book' => 'Livro'
         ];
+    }
+
+    public function pdf()
+    {
+        $category = new Category();
+        $categories = $category->all();
+
+        $data = [
+            'categories' => $categories
+        ];
+
+        $pdf = PDF::loadView('painel.category.pdf', $data);
+        return $pdf->download('category.pdf');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -85,5 +86,18 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('user.index')->with('message', 'Usuário deletado');
+    }
+
+    public function pdf()
+    {
+        $user = new User();
+        $users = $user->all();
+
+        $data = [
+            'users' => $users
+        ];
+
+        $pdf = PDF::loadView('painel.user.pdf', $data);
+        return $pdf->download('user.pdf');
     }
 }

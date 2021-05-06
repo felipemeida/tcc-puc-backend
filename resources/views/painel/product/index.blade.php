@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Produtos do site</h3>
-            <button class="btn btn-danger btn-xs float-right">Download PDF</button>
+            <a href="{{ route('product.pdf') }}"><button class="btn btn-danger btn-xs float-right">Download PDF</button></a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -20,7 +20,7 @@
                     <th style="width: 10px">Id</th>
                     <th>Nome</th>
                     <th>Qtd</th>
-                    <th>Price</th>
+                    <th>Preço</th>
                     <th style="width: 210px">Ações</th>
                 </tr>
                 </thead>

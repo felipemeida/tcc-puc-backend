@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Categorias do site</h3>
-            <button class="btn btn-danger btn-xs float-right">Download PDF</button>
+            <a href="{{ route('category.pdf') }}"><button class="btn btn-danger btn-xs float-right">Download PDF</button></a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
